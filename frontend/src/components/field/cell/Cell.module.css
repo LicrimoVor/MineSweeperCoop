@@ -1,0 +1,20 @@
+.cell_close {
+  background:rgb(192, 190, 190);
+  text-align: center;
+  border: 1px solid rgb(5, 5, 5);
+  padding: 10px;
+  /* width: calc(100%/10); */
+  cursor: pointer;
+  height: 50px;
+}
+
+
+.cell_active {
+  background:rgb(108, 104, 150);
+  text-align: center;
+  border: 1px solid yellow;
+  padding: 10px;
+  /* width: calc(100%/10); */
+  cursor: pointer;
+  height: 50px;
+}
