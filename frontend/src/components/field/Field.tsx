@@ -15,10 +15,9 @@ const Field: FC<FieldSettings> = (settings) => {
   const [field, setField] = useState<CellType[][]>(GenerateField(settings));  
 
   const CellHundler = (indx_i: number, indx_j: number, event: unknown): void => {
-    
-    let cell: CellType = field[indx_i][indx_j];
-    console.log(event);
+    const cell: CellType = field[indx_i][indx_j];
     cell.state = State.OPEN;
+
     const cell_row: CellType[] = [
       ...field[indx_i].slice(0, indx_j),
       cell,
@@ -34,25 +33,23 @@ const Field: FC<FieldSettings> = (settings) => {
 
   return (
     <div className={style.field}>
-      {
-        field.map((cell_row: CellType[], indx_i: number) => {
-
-          let comp_row: ReturnFC[] = cell_row.map((cell: CellType, indx_j: number): ReturnFC  => {
-            return (
-              <WidthCard count={settings.size[0]}>
-                <Cell
-                value={cell.value}
-                state={cell.state}
-                change_cell={partial(CellHundler, indx_i, indx_j)}
-              />
-              </WidthCard>
-              
-            );
-          })
-
-          return comp_row;
+      {field.map((cell_row: CellType[], indx_i: number) => {
+        let comp_row: ReturnFC[] = cell_row.map((cell: CellType, indx_j: number): ReturnFC  => {
+          return (
+            <WidthCard count={settings.size[0]}>
+              <Cell
+              key={indx_i*settings.size[0]+indx_j*settings.size[1]}
+              value={cell.value}
+              state={cell.state}
+              change_cell={partial(CellHundler, indx_i, indx_j)}
+            />
+            </WidthCard>
+            
+          );
         })
-      }
+
+        return comp_row;
+      })}
     </div>
   );
 }

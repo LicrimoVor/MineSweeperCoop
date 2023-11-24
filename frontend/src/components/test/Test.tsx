@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {FC} from 'react';
 
 import Field from '../field/Field';
 
@@ -13,7 +13,7 @@ const Test: FC = () => {
       corporis vero magnam maiores vel molestias delectus dolores 
       similique fuga a earum.
     </p>
-    <Field size={[15,15]} count_bombs={0}/>
+    <Field size={[15,15]}  count_bombs={10}/>
   </div>
   );
 }

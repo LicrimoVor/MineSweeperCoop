@@ -17,7 +17,7 @@ const Cell: FC<CellProps> = ({value, state, change_cell}) => {
 
   return (
     <div className={style.cell_active}>
-      {value}
+      {value === "bomb" ? "●" : value}
     </div>  
   );
 }

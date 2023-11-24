@@ -5,7 +5,6 @@ name: Docker build
     push:
         branches:
           - master
-          - develop
           - feature/**
 
 env:
